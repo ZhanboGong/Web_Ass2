@@ -4,28 +4,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Charity Website Home Page</title>
 </head>
 
 <body>
-    <!--login & register-->
-    <nav class="navbar">
+    <header>
         <div class="container">
-            <div class="logo">
-                <!--插入logo图片-->
-            </div>
-            <ul class="navlinks">
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="search.html">SEARCH</a></li>
-            </ul>
+            <nav>
+                <div class="logo">
+                    <!--logo 图片-->
+                </div>
+                <ul class="nav-links">
+                    <!--作业要求：开发好的home,search;未开发的login,register-->
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="search.html">SEARCH</a></li>
+                    <!--此处后续修改为弹窗-->
+                    <li><a href="login.html">LOGIN</a></li>
+                    <li><a href="register.html">SIGN UP</a></li>
+                </ul>
+                <!--待开发，可选可不选-->
+                <div class="hamburger-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <section class="intro">
-        <h1>Event List - Join us together</h1>
-        <p>Join our charity events and help bring hope to those in need.</p>
+    <main>
+        <div class="container">
+            <section class="intro">
+                <!--对网站的一些简单的介绍（左）-->
+                <div class="intro-content">
+                    <!--待写介绍，注意字体排版-->
+                    <h1></h1>
+                    <p></p>
+                    <!--跳转到主页下方的event list（作业要求：主页需要有event list）-->
+                    <a href="#event-list" class="event-list-button">Learn More</a>
+                </div>
+                <div class="event-image">
+                    <!--当前已有的charity图片（可选择是否开发滚动效果以及点击跳转功能）-->
+                </div>
+            </section>
+        </div>
+    </main>
 
+    <!--先开发静态，后续开发为动态注入-->
+    <section id="event-list">
+        <div class="container">
+            <h2 class="event-title">Current Charity Activities</h2>
+            <!--使用的为卡片的形式-->
+            <div></div>
+        </div>
     </section>
+
+    <!--页脚待修改-->
+    <footer class="footer">© 2025 Caleb Charity. All rights reserved.</footer>
 </body>
 
 </html>

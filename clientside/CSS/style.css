@@ -1,0 +1,76 @@
+:root {
+    --primary: #2e8b57;
+    --accent: #f59e0b;
+    --bg: #f7fafc;
+    --text: #2d3748;
+    --white: #ffffff;
+    --radius: 8px;
+    --shadow: 0 4px 12px rgba(0, 0, 0, .08);
+}
+
+/*待修改*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+字体待修改，颜色待修改
+*/
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/*
+第一navibar(一些小的装饰配件导航（左边）login register(右边))
+*/
+
+/*
+第二navibar(logo home search)
+*/
+.navbar {
+    background: var(--primary);
+    box-shadow: var(--shadow);
+}
+
+.navbar .container {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+}
+
+/*
+此为logo字体，还需要加一张logo图片（最左）
+*/
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 1px;
+}
+
+.navlinks {
+    list-style: none;
+    display: flex;
+    gap: 1.8rem;
+}
+
+/*
+鼠标悬浮效果（待修改）
+*/
+.navlinks a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color .3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
