@@ -24,3 +24,33 @@ body {
 header {
     padding: 25px 0;
 }
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*
+logo图片的格式
+*/
+.logo {}
+
+/*
+navbar下方，eventlist上方的内容
+*/
+.intro {
+    display: flex;
+    align-items: center;
+    padding: 40px 0;
+    min-height: 80vh;
+}
+
+.intro-content {
+    flex: 1;
+    padding-right: 40px;
+}
+
+.intro-content h1 {}
+
+.intro-content p {}

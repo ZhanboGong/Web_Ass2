@@ -2,7 +2,8 @@
 待开发：
 需要有一个返回最上方的按键;
 导航栏和introduction的配色需要修改;
-点击动态注入卡片跳转具体事件页面
+点击动态注入卡片跳转具体事件页面;
+添加一个注册新活动的nav和页面（可不开发，A3内容）
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Charity Website Home Page</title>
     <link rel="stylesheet" href="../CSS/style.css">
+    <script src="../JS/main.js"></script>
 </head>
 
 <body>
@@ -23,11 +25,10 @@
                 </div>
                 <ul class="nav-links">
                     <!--作业要求：开发好的home,search;未开发的login,register-->
-                    <li><a href="index.html">HOME</a></li>
-                    <li><a href="search.html">SEARCH</a></li>
+                    <li><a href="/">HOME</a></li>
+                    <li><a href="/search">SEARCH</a></li>
                     <!--此处后续修改为弹窗-->
-                    <li><a href="login.html">LOGIN</a></li>
-                    <li><a href="register.html">SIGN UP</a></li>
+                    <li><a href="register.html" id="nav-signup">SIGN UP</a></li>
                 </ul>
                 <!--待开发，可选可不选-->
                 <div class="hamburger-menu">
@@ -62,7 +63,9 @@
         <div class="container">
             <h2 class="event-title">Current Charity Activities</h2>
             <!--使用的为卡片的形式-->
-            <div></div>
+            <div class="events-container" id="events-container">
+
+            </div>
         </div>
     </section>
 
