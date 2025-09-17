@@ -1,19 +1,11 @@
-<!--
-待开发：
-需要有一个返回最上方的按键;
-导航栏和introduction的配色需要修改;
-点击动态注入卡片跳转具体事件页面;
-添加一个注册新活动的nav和页面（可不开发，A3内容）
--->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Website Home Page</title>
+    <title>Charity - Home</title>
     <link rel="stylesheet" href="../CSS/style.css">
-    <script src="../JS/main.js"></script>
 </head>
 
 <body>
@@ -21,16 +13,21 @@
         <div class="container">
             <nav>
                 <div class="logo">
-                    <!--logo 图片-->
+                    <!--logo图片-->
+
+                </div>
+                <!--原无，现为基础搜索-->
+                <div class="basic-search">
+                    <input type="text" id="basicSearch" placeholder="Quick search...">
+                    <button id="basicSearchBtn">Search</button>
                 </div>
                 <ul class="nav-links">
-                    <!--作业要求：开发好的home,search;未开发的login,register-->
                     <li><a href="/">HOME</a></li>
-                    <li><a href="/search">SEARCH</a></li>
-                    <!--此处后续修改为弹窗-->
-                    <li><a href="register.html" id="nav-signup">SIGN UP</a></li>
+                    <li><a href="/search">ADVANCED SEARCH</a></li>
+                    <li><a href="/login">LOG IN</a></li>
+                    <li><a href="/signup">SIGN UP</a></li>
                 </ul>
-                <!--待开发，可选可不选-->
+                <!--暂时未开发，等后续看情况选择是否删除-->
                 <div class="hamburger-menu">
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -39,38 +36,42 @@
             </nav>
         </div>
     </header>
-
     <main>
         <div class="container">
             <section class="intro">
-                <!--对网站的一些简单的介绍（左）-->
                 <div class="intro-content">
-                    <!--待写介绍，注意字体排版-->
-                    <h1></h1>
-                    <p></p>
-                    <!--跳转到主页下方的event list（作业要求：主页需要有event list）-->
-                    <a href="#event-list" class="event-list-button">Learn More</a>
+                    <h1>FIND A<br>CHARITY</h1>
+                    <p>Join us, make the world a better place.</p>
+                    <a href="#event-list" class="event-list-button">Learn more</a>
                 </div>
-                <div class="event-image">
-                    <!--当前已有的charity图片（可选择是否开发滚动效果以及点击跳转功能）-->
+                <div class="intro-image">
+                    <!--后续改为动态注入，且自动切换-->
+                    <img src="" alt="">
                 </div>
             </section>
         </div>
     </main>
+    <!--当前为装饰，后续配合上面的一起改-->
+    <div class="side-dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
 
-    <!--先开发静态，后续开发为动态注入-->
     <section id="event-list">
         <div class="container">
-            <h2 class="event-title">Current Charity Activities</h2>
-            <!--使用的为卡片的形式-->
+            <!--原为：section-title-->
+            <h2 class="event-list-title">Our Events</h2>
             <div class="events-container" id="events-container">
-
+                <!-- JS 动态注入卡片 -->
             </div>
         </div>
     </section>
 
-    <!--页脚待修改-->
-    <footer class="footer">© 2025 Caleb Charity. All rights reserved.</footer>
+    <footer class="footer">© 2025 Hope Charity. All rights reserved.</footer>
+
+    <script src="../JS/main.js"></script>
 </body>
 
 </html>
