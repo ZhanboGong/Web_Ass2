@@ -1,3 +1,4 @@
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -26,6 +27,10 @@ app.get('/login', (req, res) => {
 
 app.get('/signup', (req, res) => {
     res.sendFile(path.join(__dirname, '../clientside/HTML/signup.html'))
+});
+
+app.get('/event', (req, res) => {
+    res.sendFile(path.join(__dirname, '../clientside/HTML/event.html'));
 });
 
 app.use('/api', apiController);
