@@ -1,13 +1,15 @@
 /**
- * 需要对sql语句进行安全处理
+ * 目标：
+ * 需要对sql语句进行安全处理 （√）
  * 可考虑加异步处理
  */
 const dbCon = require("../db/database");
-
 const express = require("express");
 const router = express.Router();
 
-
+/**
+ * GET:获取全部分类，用于filter的搭建
+ */
 router.get('/categories', (req, res) => {
     const connection = dbCon.getConnection();
     connection.query(
@@ -24,55 +26,75 @@ router.get('/categories', (req, res) => {
     );
 });
 
+/**
+ * GET: 包含模糊词搜索和ass2中指定的filter，用于home页的基础搜索和search页的advanced search（filter）
+ */
 router.get('/events', (req, res) => {
     const connection = dbCon.getConnection();
-    let { date, location, category } = req.query;
+    // q for keyword
+    let { date, location, category, q } = req.query;
+
     let sql = `
-    SELECT e.EventID, e.EventName, e.EventDescription, e.EventDate,
-           e.Location, e.TicketPrice, e.GoalAmount, e.CurrentStatus,
-           e.GoalAttendees, e.CurrentAttendees,
+    SELECT e.EventID, e.EventName, e.EventImage, e.EventDate,
+           e.Location, e.Description, e.TicketPrice, e.CurrentAttendees,
+           e.GoalAttendees,
            c.CategoryName
-    FROM EVENTS e
-    JOIN CATEGORIES c ON e.CategoryID = c.CategoryID
-    WHERE 1=1`;
-    let param = [];
+    FROM events e
+    JOIN categories c ON e.CategoryID = c.CategoryID
+    WHERE e.CurrentStatus = 1`;
 
-    if (date) { sql += ' AND e.EventDate = ?'; param.push(date); }
-    if (location) { sql += ' AND e.Location LIKE ?'; param.push(`%${location}%`); }
-    if (category) { sql += ' AND c.CategoryName LIKE ?'; param.push(`%${category}%`); }
+    let params = [];
+    if (q) {
+        sql += ' AND (e.EventName LIKE ? OR e.Description LIKE ?)';
+        params.push(`%${q}%`, `%${q}%`);
+    }
+    if (date) {
+        sql += ' AND e.EventDate = ?';
+        params.push(date);
+    }
+    if (location) {
+        sql += ' AND e.Location LIKE ?';
+        params.push(`%${location}%`);
+    }
+    if (category) {
+        sql += ' AND c.CategoryName = ?';
+        params.push(category);
+    }
 
-    sql += ' ORDER BY e.EventDate';
-    connection.query(sql, param, (err, records) => {
+    sql += ' ORDER BY e.EventDate ASC';
+
+    connection.query(sql, params, (err, records) => {
         if (err) {
-            console.error("Error while retrieve the data", err);
+            console.error("Error while retrieving data:", err);
             res.status(500).json({ error: 'Server Error' });
-            return;
+        } else {
+            res.json(records);
         }
-        res.json(records);
         connection.end();
     });
 });
 
+/**
+ * GET: 返回指定id的数据，用于home页与search页的到具体event内容页的跳转
+ */
 router.get('/events/:id', (req, res) => {
     const connection = dbCon.getConnection();
     const sql = `
-    SELECT e.EventID, e.EventName, e.EventDescription, e.EventDate,
-           e.Location, e.TicketPrice, e.GoalAmount, e.CurrentStatus,
-           e.GoalAttendees, e.CurrentAttendees,
+    SELECT e.EventID, e.EventName, e.EventImage, e.EventDate,
+           e.Location, e.Description, e.TicketPrice, e.CurrentAttendees,
+           e.GoalAttendees,
            c.CategoryName
-    FROM EVENTS e
-    JOIN CATEGORIES c ON e.CategoryID = c.CategoryID
-    WHERE e.EventID = ?`;
+    FROM events e
+    JOIN categories c ON e.CategoryID = c.CategoryID
+    WHERE e.EventID = ? AND e.CurrentStatus = 1`;
+
     connection.query(sql, [req.params.id], (err, records) => {
         if (err) {
-            console.error("Error while retrieve the data", err);
-            res.status(500).json({ error: 'Server Error' });
-            return;
+            console.error("Error while retrieving data:", err);
+            return res.status(500).json({ error: 'Server Error' });
         }
         if (!records.length) {
-            res.status(404).json({ msg: 'Not found' });
-            connection.end();
-            return;
+            return res.status(404).json({ msg: 'Event not found' });
         }
         res.json(records[0]);
         connection.end();
