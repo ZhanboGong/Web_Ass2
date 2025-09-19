@@ -1,3 +1,11 @@
+<!--
+目标
+导航栏固定在上面（√）
+分界线（√）
+动态注入（√）
+intro-img自动切换（√）
+search bar调整
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,14 +17,13 @@
 </head>
 
 <body>
-    <header>
+    <header class="header-nav">
         <div class="container">
             <nav>
                 <div class="logo">
-                    <!--logo图片-->
-
+                    <img src="../img/logo.png" alt="Charity Logo">
                 </div>
-                <!--原无，现为基础搜索-->
+                <!--basic search: Perform a basic fuzzy search and then redirect to the "search" page after the search is completed.(no filter)-->
                 <div class="basic-search">
                     <input type="text" id="basicSearch" placeholder="Quick search...">
                     <button id="basicSearchBtn">Search</button>
@@ -27,7 +34,7 @@
                     <li><a href="/login">LOG IN</a></li>
                     <li><a href="/signup">SIGN UP</a></li>
                 </ul>
-                <!--暂时未开发，等后续看情况选择是否删除-->
+                <!--原定为侧边工具栏，暂时未开发，等后续看情况选择是否删除-->
                 <div class="hamburger-menu">
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -36,7 +43,12 @@
             </nav>
         </div>
     </header>
-    <main>
+
+    <!--分界线：nav/intro-->
+    <hr class="full-rule">
+
+    <!--introduction content-->
+    <main class="main-content">
         <div class="container">
             <section class="intro">
                 <div class="intro-content">
@@ -45,26 +57,20 @@
                     <a href="#event-list" class="event-list-button">Learn more</a>
                 </div>
                 <div class="intro-image">
-                    <!--后续改为动态注入，且自动切换-->
-                    <img src="" alt="">
+                    <!--自动切换-->
+                    <img id="introImg" src="../img/intro/1.jpg" alt="">
                 </div>
             </section>
         </div>
     </main>
-    <!--当前为装饰，后续配合上面的一起改-->
-    <div class="side-dots">
-        <div class="dot active"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-    </div>
+
+    <!--分界线: intro/event-list-->
+    <hr class="full-rule">
 
     <section id="event-list">
         <div class="container">
-            <!--原为：section-title-->
             <h2 class="event-list-title">Our Events</h2>
             <div class="events-container" id="events-container">
-                <!-- JS 动态注入卡片 -->
             </div>
         </div>
     </section>
