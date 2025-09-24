@@ -1,19 +1,73 @@
-<!--
-待开发：
-需要有模糊搜索;
-需要有一个filter：参考京东网页版
--->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Charity - Advanced Search</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+    <header class="header-nav">
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img src="../img/logo3.png" alt="Charity Logo">
+                </div>
+                <div class="basic-search">
+                    <input type="text" id="basicSearch" placeholder="Search for events by keyword...">
+                    <button id="basicSearchBtn">Search</button>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="/">HOME</a></li>
+                    <li><a href="/search">ADVANCED SEARCH</a></li>
+                    <li><a href="/login">LOG IN</a></li>
+                    <li><a href="/signup">SIGN UP</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
+    <!--展示内容：event & filter-->
+    <main class="main-content">
+        <div class="container">
+            <div class="search-layout">
+                <aside class="search-filters">
+                    <div class="filter-header">
+                        <h3>Filters</h3>
+                        <button id="clear-filters-btn" class="clear-btn">Clear All</button>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>Category</label>
+                        <div id="category-filters-container" class="filter-options">
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>Date</label>
+                        <div id="date-filters-container" class="filter-options">
+                        </div>
+                        <input type="date" id="date-picker" class="date-picker-input">
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="location-filter">Location</label>
+                        <input type="text" id="location-filter" placeholder="Enter a city or venue">
+                    </div>
+                </aside>
+
+                <div class="search-results" id="search-results-container">
+                    <p>Loading events...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">© 2025 Hope Charity. All rights reserved.</footer>
+
+    <script src="../JS/search.js"></script>
 </body>
 
 </html>
