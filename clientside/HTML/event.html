@@ -1,14 +1,49 @@
+<!--
+1 点击购买ticket，弹出无功能的表单
+2 点击确认购买，参加人数 + 1（update）
+3 面包屑导航栏
+-->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Event Details</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/event.css">
 </head>
 
 <body>
+    <header class="header-nav">
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="/"><img src="../img/logo3.png" alt="Charity Logo"></a>
+                </div>
+                <div class="basic-search">
+                    <input type="text" id="basicSearch" placeholder="Quick search by keywords...">
+                    <button id="basicSearchBtn">Search</button>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="/">HOME</a></li>
+                    <li><a href="/search">ADVANCED SEARCH</a></li>
+                    <li><a href="/login">LOG IN</a></li>
+                    <li><a href="/signup">SIGN UP</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
+    <main class="main-content">
+        <div id="event-detail-container">
+            <p>Loading event details...</p>
+        </div>
+    </main>
+
+    <footer class="footer">© 2025 Hope Charity. All rights reserved.</footer>
+
+    <script src="../JS/event.js"></script>
 </body>
 
 </html>
