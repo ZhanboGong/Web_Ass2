@@ -8,7 +8,7 @@ const express = require("express");
 const router = express.Router();
 
 /**
- * GET:获取全部分类，用于filter的搭建
+ * GET:Obtain all categories for the construction of the filter.
  */
 router.get('/categories', (req, res) => {
     const connection = dbCon.getConnection();
@@ -27,13 +27,12 @@ router.get('/categories', (req, res) => {
 });
 
 /**
- * GET: 包含模糊词搜索和ass2中指定的filter，用于home页的基础搜索和search页的advanced search（filter）
+ * GET: Including fuzzy word search and the filters specified in ass2, 
+ * it is used for the basic search on the home page and the advanced search (filters) on the search page.
  */
 router.get('/events', (req, res) => {
     const connection = dbCon.getConnection();
-    // q for keyword
     let { date, location, category, q } = req.query;
-
     let sql = `
     SELECT e.EventID, e.EventName, e.EventImage, e.EventDate,
            e.Location, e.Description, e.TicketPrice, e.CurrentAttendees,
@@ -75,7 +74,8 @@ router.get('/events', (req, res) => {
 });
 
 /**
- * GET: 返回指定id的数据，用于home页与search页的到具体event内容页的跳转
+ * GET: Retrieve the data with the specified ID, 
+ * which is used for the transition from the home page and the search page to the specific event content page.
  */
 router.get('/events/:id', (req, res) => {
     const connection = dbCon.getConnection();
@@ -101,5 +101,12 @@ router.get('/events/:id', (req, res) => {
     });
 });
 
+/**
+ * PUT:用于每次
+ */
+router.put('/events/:id', (req, res) => {
+    const connection = dbCon.getConnection();
+    const sql = '';
+});
 
 module.exports = router;
