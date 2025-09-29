@@ -33,6 +33,10 @@ app.get('/event', (req, res) => {
     res.sendFile(path.join(__dirname, '../clientside/HTML/event.html'));
 });
 
+app.get('/contact', (req, res) => {
+    res.sendFile(path.join(__dirname, '../clientside/HTML/contact.html'))
+})
+
 app.use('/api', apiController);
 
 
