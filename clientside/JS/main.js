@@ -5,14 +5,14 @@
  * 4 async await √
  * 5 try catch √
  * 
- * 7 search bar function
+ * 7 search bar function √
  */
 
 // backend interface: event
 const API = 'http://localhost:3030/api/events';
 
 /**
- * 
+ * Retrieve the list of activities data from the specified API and call the `renderEvents` method for dynamic injection and rendering.
  */
 document.addEventListener('DOMContentLoaded', async () => {
   const container = document.getElementById('events-container');
@@ -30,8 +30,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 /**
- * 
- * @param {*} data 
+ * Dynamic injection: Render the received event data onto the home page.
+ * @param {*} data The list of activity data obtained from the specified API
  * @returns 
  */
 function renderEvents(data) {
@@ -41,11 +41,9 @@ function renderEvents(data) {
     container.innerHTML = '<p">No events found.</p>';
     return;
   }
-
   data.forEach(ev => {
     const card = document.createElement('div');
     card.className = 'event-card';
-
     // If the Img is lost, then select the default Img.
     const imageUrl = ev.EventImage || '../img/default.jpg';
     card.innerHTML = `
@@ -64,10 +62,12 @@ function renderEvents(data) {
   });
 }
 
+/**
+ * Obtain the content that needs to be searched in the search box and redirect to the "search" page for the search operation.
+ */
 document.getElementById('basicSearchBtn').addEventListener('click', () => {
   const keyword = document.getElementById('basicSearch').value.trim();
   if (keyword) {
-    // Redirect to the search page with the keyword as a query parameter
     window.location.href = `/search?q=${encodeURIComponent(keyword)}`;
   }
 });
