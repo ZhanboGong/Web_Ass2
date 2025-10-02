@@ -12,7 +12,7 @@
 const API = 'http://localhost:3030/api/events';
 
 /**
- * Retrieve the list of activities data from the specified API and call the `renderEvents` method for dynamic injection and rendering.
+ * Retrieve the list of events data from the specified API and call the `renderEvents` method for dynamic injection and rendering.
  */
 document.addEventListener('DOMContentLoaded', async () => {
   const container = document.getElementById('events-container');
@@ -44,10 +44,8 @@ function renderEvents(data) {
   data.forEach(ev => {
     const card = document.createElement('div');
     card.className = 'event-card';
-    // If the Img is lost, then select the default Img.
-    const imageUrl = ev.EventImage || '../img/default.jpg';
     card.innerHTML = `
-            <img src="${imageUrl}" alt="${ev.EventName}">
+            <img src="${ev.EventImage}" alt="${ev.EventName}">
             <div class="event-content">
                 <p class="event-date">${formatDate(ev.EventDate)}</p>
                 <h3 class="event-title">${ev.EventName}</h3>

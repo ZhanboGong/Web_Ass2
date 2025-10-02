@@ -164,10 +164,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const homeSearchQuery = urlParams.get('q');
     if (homeSearchQuery) {
-        basicSearchInput.value = homeSearchQuery; // Populate the search bar
-        applyFilters(); // Trigger the search immediately
+        basicSearchInput.value = homeSearchQuery;
+        applyFilters();
     } else {
-        fetchAndRenderEvents(); // Load all events if no search query
+        fetchAndRenderEvents();
     }
 });
 
@@ -205,11 +205,9 @@ function renderResults(events) {
     events.forEach(ev => {
         const card = document.createElement('div');
         card.className = 'event-card';
-        const imageUrl = ev.EventImage || '../img/default-event.jpg';
-
         card.innerHTML = `
             <a href="/event?id=${ev.EventID}" class="card-link">
-                <img src="${imageUrl}" alt="${ev.EventName}">
+                <img src="${ev.EventImage}" alt="${ev.EventName}">
                 <div class="event-content">
                     <p class="event-date">${formatDate(ev.EventDate)}</p>
                     <h3 class="event-title">${ev.EventName}</h3>
