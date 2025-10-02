@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+
+<body class="contact">
+    <!--navigation bar-->
+    <header class="header-nav">
+        <div class="nav-container">
+            <nav>
+                <div class="logo">
+                    <a href="/"><img src="../img/logo3.png" alt="Charity Logo"></a>
+                </div>
+                <!--basic search: Perform a basic fuzzy search and then redirect to the "search" page after the search is completed.(no filter)-->
+                <div class="basic-search">
+                    <input type="text" id="basicSearch" placeholder="Quick search by keywords...">
+                    <button id="basicSearchBtn">Search</button>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="/">HOME</a></li>
+                    <li><a href="/search">ADVANCED SEARCH</a></li>
+                    <li><a href="/login">LOG IN</a></li>
+                    <li><a href="/contact">CONTACT US</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="auth-container">
+        <h1 class="auth-title">Contact Us</h1>
+        <form id="loginForm">
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" name="fullname" required placeholder="Caleb Gong" />
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" required placeholder="you@example.com" />
+            </div>
+            <div class="form-group">
+                <label>FeedBack</label>
+                <textarea name="" id=""></textarea>
+            </div>
+            <button type="submit" class="btn">SUBMIT</button>
+        </form>
+    </main>
+</body>
+
+</html>
