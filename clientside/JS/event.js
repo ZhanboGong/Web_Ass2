@@ -49,6 +49,7 @@ function renderEventData(event) {
     document.getElementById('event-date-header').textContent = formattedDate;
     document.getElementById('event-title').textContent = event.EventName;
     document.getElementById('attendee-count-display').textContent = `${event.CurrentAttendees} / ${event.GoalAttendees} attendees`;
+    document.getElementById('Fundraising-has0been-completed').textContent = `Fundraising has been completed: $${event.CurrentAttendees * event.TicketPrice}`;
     document.getElementById('attendee-progress-bar').style.width = `${attendeeProgress}%`;
     document.getElementById('event-date-time').textContent = formatDate(event.EventDate);
     document.getElementById('event-location').textContent = event.Location;

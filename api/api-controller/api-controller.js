@@ -55,8 +55,9 @@ router.get('/events', (req, res) => {
         sql += ' AND e.Location LIKE ?';
         params.push(`%${location}%`);
     }
-    if (category) {
-        sql += ' AND c.CategoryName = ?';
+    // modified: plan to add mutiple tags in Assignment 3
+    if (category && category.length > 0) {
+        sql += ' AND c.CategoryName IN (?)';
         params.push(category);
     }
 
@@ -99,14 +100,6 @@ router.get('/events/:id', (req, res) => {
         res.json(records[0]);
         connection.end();
     });
-});
-
-/**
- * PUT:用于每次
- */
-router.put('/events/:id', (req, res) => {
-    const connection = dbCon.getConnection();
-    const sql = '';
 });
 
 module.exports = router;

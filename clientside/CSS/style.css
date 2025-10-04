@@ -37,6 +37,15 @@ body.login {
     justify-content: center;
 }
 
+body.contact {
+    margin: 0;
+    height: 100vh;
+    background: rgb(235, 233, 233);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /*Some common settings*/
 .container {
     max-width: 1200px;
@@ -299,7 +308,7 @@ Login and signup Form
 *select to be deleted
 */
 .form-group input,
-.form-group select {
+.form-group textarea {
     width: 100%;
     font-size: 1rem;
     padding: .9rem .9rem;
@@ -371,7 +380,6 @@ Login and signup Form
     flex-shrink: 0;
     position: sticky;
     top: 100px;
-    /* Adjust if your nav bar is taller or shorter */
 }
 
 .search-filters .filter-header {
@@ -409,33 +417,7 @@ Login and signup Form
     color: #111827;
 }
 
-.filter-options {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-}
-
-.filter-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.25rem 0;
-    font-size: 1rem;
-    color: #374151;
-    transition: color 0.2s;
-}
-
-.filter-btn:hover {
-    color: var(--accent);
-}
-
-.filter-btn.active {
-    color: var(--accent);
-    font-weight: 600;
-}
-
-.date-picker-input {
+.date-filter-input {
     width: 100%;
     margin-top: 1rem;
     padding: .6rem;
@@ -453,6 +435,35 @@ Login and signup Form
     border-radius: var(--radius);
     background-color: #fff;
     transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.filter-select {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border: 1px solid #d1d5db;
+    border-radius: var(--radius);
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.apply-btn {
+    width: 100%;
+    padding: .8rem 1rem;
+    background: var(--accent);
+    color: var(--white);
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    transition: opacity 0.2s;
+}
+
+.apply-btn:hover {
+    opacity: 0.9;
 }
 
 /* Search Result */
@@ -480,7 +491,7 @@ Login and signup Form
     font-weight: 600;
 }
 
-/* */
+/*Responsive adjustments*/
 @media (max-width: 768px) {
     .nav-links {
         display: none;

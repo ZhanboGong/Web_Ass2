@@ -32,7 +32,9 @@
         </div>
     </header>
 
-    <main class="main-content">
+    <div style="height: 30px;"></div>
+
+    <main class="event-content">
         <div class="container">
             <div class="event-container">
                 <header class="event-header">
@@ -40,11 +42,12 @@
                         <img id="event-image" src="" alt="Loading event image...">
                     </div>
                 </header>
-                <main class="event-main">
-                    <div class="event-details-main">
+                <main class="event-main-content">
+                    <div class="event-details">
                         <p id="event-date-header" class="event-date-header"></p>
                         <h1 id="event-title">Loading Event...</h1>
-                        <p class="event-subtitle">Hosted by Hope Charity</p>
+                        <!--In Assignment 3, it need be changed to be dynamically adjusted by the organizer.-->
+                        <p class="event-subtitle">Hosted by Caleb Charity</p>
                         <section class="date-time">
                             <h2>Date and Time</h2>
                             <p id="event-date-time"></p>
@@ -54,8 +57,9 @@
                             <p id="event-location"></p>
                         </section>
                         <section class="attendees">
-                            <h2>Attendee Goal</h2>
-                            <p id="attendee-count-display">0 / 0 attendees</p>
+                            <h2>Raising Funds Progress</h2>
+                            <p id="attendee-count-display">0 / 0 attendees $0</p>
+                            <p id="Fundraising-has0been-completed">Fundraising has been completed: $0</p>
                             <div class="progress-bar-container">
                                 <div id="attendee-progress-bar" class="progress-bar" style="width: 0%;"></div>
                             </div>
