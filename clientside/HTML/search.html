@@ -36,30 +36,31 @@
     <main class="main-content">
         <div class="nav-container">
             <div class="search-layout">
-                <aside class="search-filters">
+                <form id="filter-form" class="search-filters">
                     <div class="filter-header">
                         <h3>Filters</h3>
-                        <button id="clear-filters-btn" class="clear-btn">Clear All</button>
+                        <button id="clear-filters-btn" type="button" class="clear-btn">Clear All</button>
                     </div>
 
                     <div class="filter-group">
-                        <label>Category</label>
-                        <div id="category-filters-container" class="filter-options">
-                        </div>
+                        <label for="category-filter">Category</label>
+                        <select id="category-filter" name="category" class="filter-select"></select>
                     </div>
 
                     <div class="filter-group">
-                        <label>Date</label>
-                        <div id="date-filters-container" class="filter-options">
-                        </div>
-                        <input type="date" id="date-picker" class="date-picker-input">
+                        <label for="date-filter">Date</label>
+                        <input type="date" id="date-filter" name="date" class="date-filter-input">
                     </div>
 
                     <div class="filter-group">
                         <label for="location-filter">Location</label>
-                        <input type="text" id="location-filter" placeholder="Enter a city or venue">
+                        <input type="text" id="location-filter" name="location" placeholder="Enter a city or venue">
                     </div>
-                </aside>
+
+                    <div class="filter-group">
+                        <button type="submit" class="apply-btn">Apply Filters</button>
+                    </div>
+                </form>
 
                 <div class="search-results" id="search-results-container">
                     <p>Loading events...</p>
@@ -70,7 +71,7 @@
 
     <div style="height: 30px;"></div>
 
-    <footer class="footer">© 2025 Hope Charity. All rights reserved.</footer>
+    <footer class="footer">© 2025 Caleb Hope Charity. All rights reserved.</footer>
 
     <script src="../JS/search.js"></script>
 </body>
